@@ -1,0 +1,32 @@
+git add . && git commit -m “message”  && git push 
+
+Dancer
+Dancers can add their fav dance, review fav dance, and our dance will be associated with a category.
+menu: add a dance class, all dance classes, add a comment, all comments, Categories 
+Username
+Password
+Has_many :comments
+Has_many :dance_classes, through: :comments  (must change name: commented_dance_classes, through: :comments, source: :dance_class)
+Has_many :dance_classes     #that they have created
+ 
+(*Quiz - which one does ‘@.user.dance_classes’ refer to? It refers to the last one   [has_many :dance_classes]) 
+
+Category  
+Name
+Has_many :dance_classes
+
+Dance Class
+Name
+Description 
+belongs_to :user      #creator of it (if user doesn’t see a certain dance class, they can add one in, this connects the dance_classes to the user that created them)
+belongs_to :category
+Has_many :comments
+has_many :users, through: :comments     #people who have commented on it 
+
+Comments
+dance_Class_id
+User_id 
+Title
+Content
+belongs_to :user
+Belongs_to :dance_class

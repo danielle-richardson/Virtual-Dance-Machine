@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+
+get '/' => 'sessions#welcome'
+
   resources :comments
   resources :dance_classes
   resources :categories
