@@ -8,8 +8,7 @@ Password
 Has_many :comments
 Has_many :dance_classes, through: :comments  (must change name: commented_dance_classes, through: :comments, source: :dance_class)
 Has_many :dance_classes     #that they have created
- 
-(*Quiz - which one does ‘@.user.dance_classes’ refer to? It refers to the last one   [has_many :dance_classes]) 
+
 
 Category  
 Name
@@ -30,3 +29,9 @@ Title
 Content
 belongs_to :user
 Belongs_to :dance_class
+
+Steps
+[x] Create Welcome page
+[x] Create login page 
+[] Create logout page 
+[] Create signup page 
