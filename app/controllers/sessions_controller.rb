@@ -19,4 +19,9 @@ class SessionsController < ApplicationController
         end
 
     end 
+
+    def destroy
+        session.delete(:dancer_id)
+        redirect_to '/' 
+    end 
 end

@@ -1,16 +1,17 @@
 class DancersController < ApplicationController
 
-def new
-    @dancer = Dancer.new
-end 
+    def new
+        @dancer = Dancer.new
+    end 
 
-def create
-    @dancer = Dancer.new(dancer_params)      
-    if @dancer.save                             
-      session[:dancer_id] = @dancer.id
-       redirect_to dancer_path(@dancer)
-    else 
-       render :new
+    def create
+        @dancer = Dancer.new(dancer_params)      
+        if @dancer.save                             
+            session[:dancer_id] = @dancer.id
+            redirect_to dancer_path(@dancer)
+        else 
+            render :new
+        end
     end
 
     def show 
@@ -26,4 +27,3 @@ def create
 
 end 
 
-end

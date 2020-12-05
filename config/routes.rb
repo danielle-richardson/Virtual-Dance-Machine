@@ -7,6 +7,7 @@ post '/login' => 'sessions#create'
 get '/signup' => 'dancers#new'
 post '/signup' => 'dancers#create'
 
+delete '/logout' => 'sessions#destroy'
 
   resources :comments
   resources :dance_classes
