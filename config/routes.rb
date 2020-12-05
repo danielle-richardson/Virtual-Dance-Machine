@@ -7,6 +7,7 @@ post '/login' => 'sessions#create'
 get '/signup' => 'dancers#new'
 post '/signup' => 'dancers#create'
 
+
   resources :comments
   resources :dance_classes
   resources :categories
