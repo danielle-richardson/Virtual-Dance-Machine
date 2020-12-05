@@ -10,7 +10,7 @@ Has_many :dance_classes, through: :comments  (must change name: commented_dance_
 Has_many :dance_classes     #that they have created
 
 
-Category  
+Category 
 Name
 Has_many :dance_classes
 
@@ -34,4 +34,6 @@ Steps
 [x] Create Welcome page
 [x] Create signup page 
 [x] Create login page 
-[x] Create logout page 
+[x] Create logout page
+[] Create dance classes  
+

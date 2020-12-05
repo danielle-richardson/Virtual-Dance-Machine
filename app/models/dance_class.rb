@@ -4,4 +4,7 @@ class DanceClass < ApplicationRecord
 
   has_many :comments
   has_many :dancers, through: :comments
+
+  accepts_nested_attributes_for :category         
+
 end
