@@ -8,7 +8,8 @@ class SessionsController < ApplicationController
 
     def create 
         #finds the dancer in the database
-        Dancer.find_by(username: params[:dancer][:username])
+        @dancer = Dancer.find_by(username: params[:dancer][:username])
+
         #did we find someone & did they put in the right pw
         if @dancer.try(:authenticate, params[:dancer][:password])
         session[:dancer_id] = @dancer.id

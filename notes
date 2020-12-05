@@ -32,6 +32,6 @@ Belongs_to :dance_class
 
 Steps
 [x] Create Welcome page
-[x] Create login page 
 [x] Create signup page 
-[] Create logout page 
+[x] Create login page 
+[x] Create logout page 
