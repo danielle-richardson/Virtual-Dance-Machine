@@ -19,6 +19,15 @@ class CommentsController < ApplicationController
       
 
     def index
+    #how to I check if its nested & a valid id
+        if @dance_class = DanceClass.find_by_if(:dance_class_id)
+    #then its nested
+            @comments = @dance_class.comments
+        else
+    #if its not nested
+            @comments = Comment.all
+        end 
+  
     end
 
     private

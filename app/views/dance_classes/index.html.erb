@@ -1,6 +1,8 @@
 <h1> All Dance Classes</h1>
+
 <% @dance_classes.each do |dc| %>
 <h2><%= dc.type%> - <%= dc.category.name%></
+<%= link_to “Write a comment”, new_dance_class_comment_path(dc.id)%>
 <div>
   <p><%= dc.description %></p>
 </div>
