@@ -1,0 +1,7 @@
+<h1> All Dance Classes</h1>
+<% @dance_classes.each do |dc| %>
+<h2><%= dc.type%> - <%= dc.category.name%></
+<div>
+  <p><%= dc.description %></p>
+</div>
+<% end %>

@@ -10,7 +10,8 @@ post '/signup' => 'dancers#create'
 delete '/logout' => 'sessions#destroy'
 
   resources :comments
-  resources :dance_classes
+  resources :dance_classes do
+    resources :comments, only: [:new, :index]  
   resources :categories
   resources :dancers
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html

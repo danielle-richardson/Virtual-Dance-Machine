@@ -1,0 +1,15 @@
+<h1>Add A Comment for <%= @comment.dance_class.type %> - <%= @comment.dance_class.category.name %></h2>
+<%= form_for(@comment) do |f|%>
+<div>
+  <%= f.label :title %>
+  <%= f.text_field :title %>
+</div>
+<div>
+ <%= f.label :content %> 
+  <%= f.text_area :content %>
+</div>
+
+  <%= f.hidden_field :dance_class_id %>
+
+  <%= f.submit %>
+  <% end %>
