@@ -12,8 +12,8 @@ delete '/logout' => 'sessions#destroy'
   resources :comments
   resources :dance_classes do
     resources :comments, only: [:new, :index]  
+  end
   resources :categories
   resources :dancers
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
-  end
 end

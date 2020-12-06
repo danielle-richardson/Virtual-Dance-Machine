@@ -15,6 +15,11 @@ class DanceClassesController < ApplicationController
          render :new
       end
     end 
+
+    def index
+        @dance_classes = DanceClass
+    end 
+
     private
       
     def dance_class_params
