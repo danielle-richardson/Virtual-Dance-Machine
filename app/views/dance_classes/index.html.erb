@@ -1,9 +1,11 @@
 <h1> All Dance Classes</h1>
 
 <% @dance_classes.each do |dc| %>
-<h2><%= dc.type%> - <%= dc.category.name%></
-<%= link_to "Write a comment", new_dance_class_comment_path(dc.id)%>
-<div>
-  <p><%= dc.description %></p>
-</div>
-<% end %>
+  <h2><%= link_to dc.type, dance_class_path(dc.id)%> - <%= dc.category.name %> </h2>
+  <%= link_to "Write a comment", new_dance_class_comment_path%>
+  <% if dc.image.attached? %>
+    <%= image_tag url_for(dc.thumbnail)%>
+  <% end %>
+  <div>
+    <p><%= dc.description %></p>
+  </div>
