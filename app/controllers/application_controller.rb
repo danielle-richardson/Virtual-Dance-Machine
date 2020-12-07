@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
     private
 
     def logged_in?
-        !!session[:user_id]
+        !!session[:dancer_id]
     end
 
     def current_dancer
