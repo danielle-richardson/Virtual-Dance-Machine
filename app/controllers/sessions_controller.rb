@@ -12,6 +12,18 @@ class SessionsController < ApplicationController
     end 
 
     def create 
+
+        if params[:provider] == 'google_oauth2'
+            @dancer = Dancer.create_by_google_omniauth(auth)
+            session[:dancer_id] = @dancer.id
+            redirect_to dancer_path(@dancer)
+      
+          elsif params[:provider] == 'github'
+            @dancer = Dancer.create_by_github_omniauth(auth)
+            session[:dancer_id] = @dancer.id
+            redirect_to dancer_path(@dancer)
+          else
+
         #finds the dancer in the database
         @dancer = Dancer.find_by(username: params[:dancer][:username])
 
@@ -26,5 +38,18 @@ class SessionsController < ApplicationController
 
     end 
 
+    def omniauth
+        @dancer = Dancer.create_by_google_omniauth(auth)
+    
+        session[:dancer_id] = @dancer.id
+        redirect_to dancer_path(@dancer)
+    end
+    
+    private
+    
+    def auth
+        request.env['omniauth.auth']
+    end
+    
     
 end
