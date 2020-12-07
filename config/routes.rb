@@ -8,7 +8,7 @@ post '/signup' => 'dancers#create'
 
 delete '/logout' => 'sessions#destroy'
 
-#get '/auth/:provider/callback' => 'sessions#create'
+get '/auth/:provider/callback' => 'sessions#create'
 
   resources :comments
   resources :dance_classes do
