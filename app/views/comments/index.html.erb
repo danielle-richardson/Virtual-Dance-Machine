@@ -1,7 +1,14 @@
+<% if @dance_class %>
+  <h1>Comments for <%= @dance_class.type%> - <%= @dance_class.category_name%></h1>
+<% else %>
 <h1>All the Comments</h1>
+<% end %>
 
 <ul>
-<% @comments.each do |c| %>
-  <li><%= c.title%> </li>  <br>
+<% @comments.each do |comment| %>
+
+  <li>
+  <%= @comment.dance_class.type%>: <%= link_to @comment.title, comment_path(comment)%>
+  </li>  <br>
 <% end %>
 </ul>
