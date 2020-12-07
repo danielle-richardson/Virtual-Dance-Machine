@@ -1,34 +1,11 @@
 
 <%=  display_header(@comment)%>
 
+<div>
 <%= render partial: 'layouts/errors', locals: {object: @comment}  %>
+<%= render 'form' %>
+<%= link_to  "Cancel", dance_classes_path %>
+</div>
 
 
-
-<%= form_for(@comment) do |f|%>
-  <% if params[:dance_class_id] %>
-    <%= f.hidden_field :dance_class_id %>
-  <% else %>
-    <div>
-      <%= f.label :dance_class_id, "Select a Dance Class" %>
-      <%= f.collection_select :dance_class_id, DanceClass.alpha, :id, :type_and_category, include_blank: true %>
-    </div>
-  <% end %>
-
-  <br>
-  <div>
-    <%= f.label :title %>
-    <%= f.text_field :title %>
-  </div>
-  <br>
-  <div>
-    <%= f.label :content %>
-    <%= f.text_area :content, size: "25x10" %>
-  </div>
-  <br>
-
-
-
-  <%= f.submit %>
-
-<% end %>
+<%= render 'dance_class/style' %>

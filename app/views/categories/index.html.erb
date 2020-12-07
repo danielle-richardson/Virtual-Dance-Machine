@@ -1,7 +1,9 @@
 <h1>All the Categories</h1>
 
 <ol>
-  <% @categories.each do |category| %>
-    <li><%= category.name%></li>
+  <% @categories.each do |c| %>
+    <li><%= c.name%></li>
   <% end %>
 </ol>
+
+<%= render 'dance_classes/style' %>

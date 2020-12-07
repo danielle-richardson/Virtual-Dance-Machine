@@ -1,0 +1,32 @@
+<%= form_for(@comment) do |c|%>
+    <% if params[:dance_class_id] %>
+    <%= c.hidden_field :dance_class_id %>
+
+  <% else %>
+    <div>
+      <%= c.label :dance_class_id, "Select a Dance Class" %>
+      <%= c.collection_select :dance_class_id, DanceClass.all, :id, :title_category, include_blank: true %>
+    </div>
+  <% end %>
+  
+  <br>
+  <div>
+    <%= c.label :title %>
+    <br>
+    <%= c.text_field :title %>
+  </div>
+  <br>
+  <div>
+    <%= c.label :content %>
+    <br>
+    <%= c.text_area :content, size: "50x10" %>
+  </div>
+  <br>
+
+  <%= c.hidden_field :dance_class_id %>
+
+
+  <%= c.submit %>
+  
+
+<% end %>

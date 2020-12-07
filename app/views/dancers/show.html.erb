@@ -1,8 +1,7 @@
 <h1>Welcome to <%= @dancer.username%>'s homepage!</h1>
 
-<h3>Here are the dance classes commented by <%=@dancer.username%>:</h3>
-<ul>
-  <% @dancer.commented_dance_classes.each do |dc|%>
-  <li> <%= link_to dc.type_and_category, dance_class_path(dc)%> </li>
-  <% end %>
-</ul>
+<h1>Your Dance Classes</h1>
+                            
+<%= render 'dance_classes' %>
+
+<%= render 'dance_classes/style' %>

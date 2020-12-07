@@ -1,0 +1,13 @@
+<% @dancer.dance_classes.each do |w| %>
+        <h4>Type - <%= w.type %><br></h4>
+        <h4>Description -<%= w.description %><br>
+    <%= link_to "Show dance_class/Comments", dance_class_path(w.id) %>
+    <br>
+    <%= link_to "Edit dance_class", edit_dance_class_path(w.id) if w.dancer_id == session[:dancer_id] %>
+    <br>
+    <%= link_to "Delete dance_class", dance_class_path(w), :confirm => "Are you sure?", :method => :delete if w.dancer_id == session[:dancer_id] %>
+    <br>
+    <%= link_to "Add a comment", new_dance_class_comment_path(w.id) %>
+    </div>
+        <hr>
+<% end %>
