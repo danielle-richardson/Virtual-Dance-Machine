@@ -1,7 +1,12 @@
+<%= render partial: 'layouts/errors', locals: {obj: @dance_class} %>
+
 <h1>Make a new Dance Class!</h1>
 
 
 
 <%= render partial: 'form'%>
+<%= link_to  "Cancel", dancer_path(session[:user_id]) %>
 
 
+
+<%= render 'style' %>

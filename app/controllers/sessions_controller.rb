@@ -1,7 +1,7 @@
 class SessionsController < ApplicationController
 
   def new
-    @dancer = Danccer.new 
+    @dancer = Dancer.new 
   end 
 
   def create
@@ -14,7 +14,7 @@ class SessionsController < ApplicationController
     end
   end
 
-  end 
+ 
 
     def destroy
       session.delete(:dancer_id)

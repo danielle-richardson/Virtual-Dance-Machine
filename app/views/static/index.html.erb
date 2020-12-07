@@ -2,19 +2,15 @@
   <div class="container h-100">
     <div class="row h-100 align-items-center">
       <div class="col-12 text-center">
-          <%= image_tag  "Main_logo.png" %>
-          <h3 class="font-weight-strong display-5 text-info">Create and Share Workouts</h3>
+        <%= image_tag  "Logo.png" %>
+        <h3 class="font-weight-strong display-5 text-info">Create and Share Dance Classes</h3>
 
-
-     <%= link_to "Log-in", {controller: "sessions", action: "new"}, class: "btn btn-danger" %>
-     <%= link_to "Sign-up", {controller: "users", action: "new"}, class: "btn btn-success" %>
-     <%= link_to "Sign-in with Google", '/auth/google_oauth2', class: "btn btn-primary" %>
+     <%= link_to "Log-in", {controller: "sessions", action: "new"} %>
+     <%= link_to "Sign-up", {controller: "dancers", action: "new"} %>
         
-      </div>
+     </div>
     </div>
   </div>
-</header>
-
-
+ </header>
 
 <%= render 'background' %>

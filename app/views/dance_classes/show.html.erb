@@ -1,19 +1,22 @@
-<h1><%= @dance_class.type%>  </h1>
 
+                        <h1>Show Dance Class Page</h1>
+                            <h3><%= check_image(@dance_class.dancer) %><%= @dance_class.dancer.username %></h3>
 
-<% if @dance_class.image.attached? %>
-  <%= image_tag url_for(@dance_class.image) %>
-<% end %>
+                            <h3>Title of dance_class - <%= @dance_class.type %></h3>
+                            <p>Description of dance_class -  <%= @dance_class.description %> </p>
+                      
+                            </div>
+                            <br>
+                            
+                            <% @comments.all.each do |c| %>
+                                <%= check_image(c.dancer) %> 
+                                <h5 <%= c.dancer.username.capitalize %> posted</h5>
+                                <h5>Title - <%= c.title %></h5>
+                                <h5> Created-at <%= c.created_at %></h5>
+                                <hr>
+                                <% end %> 
+                                <%= link_to  "View Comments", dance_class_comments_path(@dance_class) %>
+                            </div>
+            
 
-<h2> <%= @dance_class.category_name %> </h2>
-<div>
-  <p><%= @dance_class.description %></p>
-</div>
-
-<h3>Added by: <%= link_to @dance_class.dancer, dancer_path(@dancer)%> </h3>
-
-<%= link_to "Edit #{@dance_class.type}", edit_dance_class_path(@dance_class) if @dance_class.dancer == current_dancer%>
-
-<br></br>
-
-<%= link_to "See all Comments", dance_class_comments_path(@dance_class) %>
+<%= render 'style' %>
