@@ -28,4 +28,4 @@ class DanceClass < ApplicationRecord
     "#{type} - #{category.try(:name)}"
   end
 
-ends
+end

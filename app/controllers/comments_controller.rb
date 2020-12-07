@@ -21,6 +21,9 @@ class CommentsController < ApplicationController
     def show
         @comment = Comment.find_by_id(params[:id])
     end 
+
+    def edit
+    end 
     
     def index
     #how to I check if its nested & a valid id

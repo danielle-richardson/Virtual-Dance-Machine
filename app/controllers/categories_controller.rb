@@ -5,6 +5,7 @@ class CategoriesController < ApplicationController
 
   def index
     @categories = Category.alpha
+    dance_classes = DanceClass.all
   end
 
 end

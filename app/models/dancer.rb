@@ -3,8 +3,10 @@ class Dancer < ApplicationRecord
     has_many :commented_dance_classes, through: :comments, source: :dance_class 
     has_many :dance_classes
     
-    validates :username, uniqueness: true, presence: true   
-    validates :email, presence: true
+    validates :username, uniqueness: true, presence: true, length: { minimum: 5}   
+    validates :email, uniqueness: true, presence: true
+    validates :password, length: { in: 6..100 }
+
 
     has_secure_password 
 
