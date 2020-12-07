@@ -1,7 +1,6 @@
 class DancersController < ApplicationController
 
     def new
-        @dancer = Dancer.new
     end 
 
     def create

@@ -5,6 +5,8 @@ class DanceClass < ApplicationRecord
   has_many :dancers, through: :comments
   has_one_attached :image
 
+  validates :type, presence: true
+
   def self.alpha
     order(:type)
   end
@@ -26,4 +28,4 @@ class DanceClass < ApplicationRecord
     "#{type} - #{category.try(:name)}"
   end
 
-end
+ends

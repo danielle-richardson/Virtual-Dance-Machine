@@ -12,7 +12,6 @@ class SessionsController < ApplicationController
     end 
 
     def create 
-
         if params[:provider] == 'google_oauth2'
             @dancer = Dancer.create_by_google_omniauth(auth)
             session[:dancer_id] = @dancer.id
@@ -23,10 +22,9 @@ class SessionsController < ApplicationController
             session[:dancer_id] = @dancer.id
             redirect_to dancer_path(@dancer)
           else
-
             #finds the dancer in the database
             @dancer = Dancer.find_by(username: params[:dancer][:username])
-          end 
+
 
         #did we find someone & did they put in the right pw
         if @dancer.try(:authenticate, params[:dancer][:password])
@@ -36,6 +34,7 @@ class SessionsController < ApplicationController
          flash[:error] = "Sorry, your username and/or password was incorrect. Please try again."
             redirect_to login_path
         end
+      end
 
     end 
 

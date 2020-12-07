@@ -9,7 +9,7 @@ class ApplicationController < ActionController::Base
     end
 
     def current_dancer
-        @current_dancer ||= Dancer.find_by_id(session[:dancer_id]) if session[:user_id]
+        @current_dancer ||= Dancer.find_by_id(session[:dancer_id]) if session[:dancer_id]
     end
 
     def redirect_if_not_logged_in

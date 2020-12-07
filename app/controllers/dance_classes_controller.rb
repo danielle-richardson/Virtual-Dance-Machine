@@ -3,8 +3,8 @@ class DanceClassesController < ApplicationController
     before_action :redirect_if_not_logged_in
     
     def new 
-        @dance_class = DanceClass.new
-        @dance_class.build_category     
+      @dance_class = DanceClass.new
+      @dance_class.build_category     
     end 
 
     def create 
@@ -12,7 +12,7 @@ class DanceClassesController < ApplicationController
         @dance_class.dancer_id = session[:dancer_id]    
       if @dance_class.save
         @dance_class.image.purge
-        @dance_class.image.attach(params[:dace_class][:image])                             
+        @dance_class.image.attach(params[:dance_class][:image])                             
          redirect_to dance_class_path(@dance_class)
       else 
         @dance_class.build_category
@@ -43,11 +43,11 @@ class DanceClassesController < ApplicationController
     private
       
     def dance_class_params
-        params.require(:dance_class).permit(:type, :description, :category_id, category_attributes: [:name]) 
+        params.require(:dance_class).permit(:description, :category_id, category_attributes: [:name]) 
     end
 
     def set_dance_class
         @dance_class = DanceClass.find_by(params[:id])
-        redirect_to dance_class_path if !@dance_class
+        redirect_to dance_classes_path if !@dance_class
     end
 end
