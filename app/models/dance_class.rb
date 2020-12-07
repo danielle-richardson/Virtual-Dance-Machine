@@ -1,10 +1,12 @@
 class DanceClass < ApplicationRecord
   belongs_to :category
   belongs_to :dancer
-
   has_many :comments
   has_many :dancers, through: :comments
+  has_one_attached :image
 
-  accepts_nested_attributes_for :category         
+  def self.alpha
+    order(:type)
+  end
 
 end

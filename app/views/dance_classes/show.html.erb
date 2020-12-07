@@ -1,0 +1,19 @@
+<h1><%= @dance_class.type%>  </h1>
+
+
+<% if @dance_class.image.attached? %>
+  <%= image_tag url_for(@dance_class.image) %>
+<% end %>
+
+<h2> <%= @dance_class.category_name %> </h2>
+<div>
+  <p><%= @dance_class.description %></p>
+</div>
+
+<h3>Added by: <%= link_to @dance_class.dancer, dancer_path(@dancer)%> </h3>
+
+<%= link_to "Edit #{@dance_class.type}", edit_dance_class_path(@dance_class) if @dance_class.dancer == current_dancer%>
+
+<br></br>
+
+<%= link_to "See all Comments", dance_class_comments_path(@dance_class) %>

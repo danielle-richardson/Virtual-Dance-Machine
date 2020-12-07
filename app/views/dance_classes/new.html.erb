@@ -1,19 +1,7 @@
-<h1>Choose a category</h1>
+<h1>Make a new Dance Class!</h1>
 
-<%= form_for(@dance_class) do |f|%>
-  
-<p>Select a Category that already exists</p>
-<div>
-    <%= f.collection_select :category_id, Category.all, :id, :name %>
-</div>
 
-<p>Or create a new Category</p>
-<div>
-  <%= f.fields_for :category do |b| %>
-  <%= b.label :name %>
-  <%= b.text_field :name %>
-  <% end  %>
-</div>
- <br>
-<%= f.submit %>
-<% end %>
+
+<%= render partial: 'form'%>
+
+
