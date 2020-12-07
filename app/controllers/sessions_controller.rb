@@ -24,8 +24,9 @@ class SessionsController < ApplicationController
             redirect_to dancer_path(@dancer)
           else
 
-        #finds the dancer in the database
-        @dancer = Dancer.find_by(username: params[:dancer][:username])
+            #finds the dancer in the database
+            @dancer = Dancer.find_by(username: params[:dancer][:username])
+          end 
 
         #did we find someone & did they put in the right pw
         if @dancer.try(:authenticate, params[:dancer][:password])

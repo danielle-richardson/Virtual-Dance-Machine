@@ -15,6 +15,6 @@ get '/auth/:provider/callback' => 'sessions#create'
     resources :comments, only: [:new, :index]  
   end
   resources :categories
-  resources :dancers, only [:show]
+  resources :dancers, only: [:show]
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
