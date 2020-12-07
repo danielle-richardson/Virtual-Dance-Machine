@@ -3,6 +3,11 @@ class SessionsController < ApplicationController
     def welcome
     end 
 
+    def destroy
+        session.delete(:dancer_id)
+        redirect_to '/' 
+    end 
+
     def new
     end 
 
@@ -21,8 +26,5 @@ class SessionsController < ApplicationController
 
     end 
 
-    def destroy
-        session.delete(:dancer_id)
-        redirect_to '/' 
-    end 
+    
 end

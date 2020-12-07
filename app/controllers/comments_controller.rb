@@ -1,7 +1,12 @@
 class CommentsController < ApplicationController
+    before_action :redirect_if_not_logged_in
+
     def new 
-        @dance_class = DanceClass.find_by_id(params[:dance_class_id]
+        if @dance_class = DanceClass.   find_by_id(params[:dance_class_id]
         @comment = @dance_class.comments.build
+        else 
+            @comment = Comment.new
+        end 
     end 
 
     def create
@@ -16,18 +21,16 @@ class CommentsController < ApplicationController
     def show
         @comment = Comment.find_by_id(params[:id])
     end 
-      
-
+    
     def index
     #how to I check if its nested & a valid id
-        if @dance_class = DanceClass.find_by_if(:dance_class_id)
+        if @dance_class = DanceClass.find_by_id(params[:dance_class_id])
     #then its nested
             @comments = @dance_class.comments
         else
     #if its not nested
             @comments = Comment.all
         end 
-  
     end
 
     private

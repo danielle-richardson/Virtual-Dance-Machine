@@ -15,6 +15,7 @@ class DancersController < ApplicationController
     end
 
     def show 
+        redirect_if_not_logged_in
         @dancer = Dancer.find_by_id(params[:id])    
         redirect_to ‘/’ if !@dancer   
     end
@@ -22,7 +23,7 @@ class DancersController < ApplicationController
     private 
 
     def dancer_params
-        params.require(:dancer).permit(:username, :password)   
+        params.require(:dancer).permit(:username, :email, :password)   
     end 
 
 end 
