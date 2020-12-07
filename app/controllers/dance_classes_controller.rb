@@ -1,5 +1,6 @@
 class DanceClassesController < ApplicationController
 
+    
     def new 
         @dance_class = DanceClass.new
         @dance_class.build_category     
@@ -12,12 +13,13 @@ class DanceClassesController < ApplicationController
       if @dance_class.save                             
          redirect_to dance_class_path(@dance_class)
       else 
+        @dance_class.build_category
          render :new
       end
     end 
 
     def index
-        @dance_classes = DanceClass
+        @dance_classes = DanceClass.all
     end 
 
     private

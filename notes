@@ -35,5 +35,20 @@ Steps
 [x] Create signup page 
 [x] Create login page 
 [x] Create logout page
-[x] Create dance classes  
+[x] Create dance classes
+
+[ ] Add display of error messages
+[ -] Add a custom validation to make sure there aren't repeats of dance classes added
+[ ] Display type and category in collection select drop down for new comment form
+[ ] Scope methods for the following:
+    [ ] order dance classes alphabetically
+    [ ] order dance classes by category
+[ ] Add helper method for nested route logic 
+   
+
+
+
+
+
+
 
