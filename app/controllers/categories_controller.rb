@@ -1,10 +1,10 @@
 class CategoriesController < ApplicationController
     
-  before_action :redirect_if_not_logged_in
+  before_action :require_login
 
 
   def index
-    @categories = Category.alpha
+    @categories = Category.filter_duplicates
     dance_classes = DanceClass.all
   end
 

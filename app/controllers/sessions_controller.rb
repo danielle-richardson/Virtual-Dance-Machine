@@ -1,32 +1,18 @@
 class SessionsController < ApplicationController
 
-  def welcome
-  end 
-
   def new
+    @dancer = Danccer.new 
   end 
 
-  def create 
-    if params[:provider] == 'google_oauth2'
-      @dancer = Dancer.create_by_google_omniauth(auth)
-      session[:dancer_id] = @dancer.id
-        redirect_to dancer_path(@dancer)
-      
-    elsif params[:provider] == 'github'
-      @dancer = Dancer.create_by_github_omniauth(auth)
-      session[:dancer_id] = @dancer.id
-        redirect_to dancer_path(@dancer)
-    else
-      @dancer = Dancer.find_by(username: params[:dancer][:username])
-
+  def create
+    @dancer = Dancer.find_by(username: params[:dancer][:username])
     if @dancer && @dancer.authenticate(params[:dancer][:password])
-      session[:dancer_id] = @dancer.id
+        create_session
         redirect_to dancer_path(@dancer)
     else
-      flash[:error] = "Sorry, your username and/or password was incorrect. Please try again."
-        redirect_to login_path
-      end
+        render :new
     end
+  end
 
   end 
 
@@ -38,10 +24,13 @@ class SessionsController < ApplicationController
 
     def omniauth
         @dancer = Dancer.create_by_google_omniauth(auth)
-    
-        session[:dancer_id] = @dancer.id
+      if @dancer
+        create_session
         redirect_to dancer_path(@dancer)
-    end
+      else 
+        redirect_to login_path
+      end 
+    end 
     
     private
     

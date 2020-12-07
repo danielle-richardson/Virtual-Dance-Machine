@@ -1,12 +1,17 @@
 class DancersController < ApplicationController
 
     def new
+        @dancer = Dancer.new
     end 
+
+    def index
+        @dancers = Dancer.all
+    end
 
     def create
         @dancer = Dancer.new(dancer_params)      
         if @dancer.save                             
-            session[:dancer_id] = @dancer.id
+            create_session
             redirect_to dancer_path(@dancer)
         else 
             render :new
@@ -14,9 +19,7 @@ class DancersController < ApplicationController
     end
 
     def show 
-        redirect_if_not_logged_in
         @dancer = Dancer.find_by_id(params[:id])    
-        redirect_to ‘/’ if !@dancer   
     end
 
     private 
