@@ -9,4 +9,21 @@ class DanceClass < ApplicationRecord
     order(:type)
   end
 
+  def category_attributes=(attributes)
+    self.category = Category.find_or_create_by(attributes) if !attributes['name'].empty?
+    self.category
+  end
+
+  def thumbnail
+    self.image.variant(resize: "100x100")
+  end
+
+  def category_name
+    category.try(:name)
+  end
+
+  def type_and_category
+    "#{type} - #{category.try(:name)}"
+  end
+
 end
