@@ -3,13 +3,11 @@
         <div class="container">
                 <div class="col-xl-5 col-lg-6 col-md-8 col-sm-10 mx-auto text-center form p-4">
 
-                        <h1>Show Dance Class Page</h1>
+                        <h1>Dance Class Details</h1>
                         <div class="blk_center row card-deck border-info text-white mb-3">
 
-                            <h3><%= check_image(@dance_class.dancer) %><%= @dance_class.dancer.username %></h3>
-
-                            <h3>Title of dance_class - <%= @dance_class.type %></h3>
-                            <p>Description of dance_class -  <%= @dance_class.description %> </p>
+                            <h3>Title:  <%= @dance_class.type %></h3>
+                            <p>Description: <%= @dance_class.description %> </p>
                       
                             </div>
                             <br>
