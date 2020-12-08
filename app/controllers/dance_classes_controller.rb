@@ -40,7 +40,7 @@ class DanceClassesController < ApplicationController
   
     def update
       if @dance_class.update(dance_class_params)
-        redirect_to dance_class_path
+        redirect_to dance_classes_path
       else
         render :edit
       end

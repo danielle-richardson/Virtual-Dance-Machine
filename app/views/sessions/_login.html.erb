@@ -1,11 +1,16 @@
-<h1>Login!</h1>
 <p><%= flash[:error] %></p>
 
-<%= form_for(:dancer) do |f|%>                
+<%= form_for(:dancer) do |f|%>   
+<div>             
  <%= f.label :username %>
   <%= f.text_field :username %>
+</div>
+<div>
   <%= f.label :password %>
   <%= f.password_field :password %>   
-
- <%= f.submit "Log In" %>
+  </div>
+  <br>
+<div>
+ <%= f.submit "Log In", class: "btn-primary"%>
+ </div>
 <% end %>

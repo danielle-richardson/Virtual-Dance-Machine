@@ -1,16 +1,24 @@
-<% if @dance_class %>
-  <h1>Comments for <%= @dance_class.type%> - <%= @dance_class.category_name%></h1>
-<% else %>
-<h1>All the Comments</h1>
-<% end %>
+<section id="cover" class="min-vh-100">
+    <div id="cover-caption">
+        <div class="container">
+                <div class="col-xl-5 col-lg-6 col-md-8 col-sm-10 mx-auto text-center form p-4">
+                    <h1 class="text-primary">All comments for <%= @dance_class.title %> DanceClass</h1>
+                    <h3 class="text-danger">By <%= @dance_class.dancer.username %></h3>
+                        <div class="px-2 blk_center row card-deck border-light mb-3">
 
-<ul>
-<% @comments.each do |comment| %>
-
-  <li>
-  <%= @comment.dance_class.type%>: <%= link_to @comment.title, comment_path(comment)%>
-  </li>  <br>
-<% end %>
-</ul>
+                        <% @comments.each do |c| %>
+                        <h4 class="text-primary"><%= check_image(c.dancer) %><%=c.dancer.username %> posted: </h4>
+                        <p class="text-light"><%= c.content %><p>
+                        <p class="text-success"> Created-at <%= c.created_at %></p>
+                        <hr>
+                       
+                        <% end %>
+                        <%= link_to  "Add a Comment", new_dance_class_comment_path(@dance_class) %>
+                    </div>
+                </div>
+            
+        </div>
+    </div> 
+</section>
 
 <%= render 'dance_classes/style' %>

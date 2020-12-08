@@ -1,7 +1,25 @@
-<h1>Welcome to <%= @dancer.username%>'s homepage!</h1>
+  
+<section id="cover" class="min-vh-100">
+<div id="cover-caption">
+    <div class="container">
+            <div class="col-xl-5 col-lg-6 col-md-8 col-sm-10 mx-auto text-center form p-4">
+                <%= image_tag("Logo.png", size: "200x200") %> 
+                <div class="px-2">
 
-<h1>Your Dance Classes</h1>
-                            
-<%= render 'dance_classes' %>
+                    <h1>Welcome <div class="text-success"><%= @dancer.username %></div></h1>
+                    
+                    <%= check_image(@dancer) %> 
+
+
+                        <h1>Your Dance Classes</h1>
+                        
+                        <%= render 'dance_classes' %>
+
+            </div>
+        </div>
+    </div>
+</div>
+</section>
+
 
 <%= render 'dance_classes/style' %>

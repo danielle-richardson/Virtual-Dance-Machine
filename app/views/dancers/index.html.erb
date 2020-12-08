@@ -1,8 +1,25 @@
-<% @dancers.each do |u| %>
-   <%= u.username %></h3>
-    <h5>Created on - <%= u.created_at %><h5>
+<section id="cover" class="min-vh-100">
+    <div id="cover-caption">
+        <div class="container">
+                <div class="col-xl-5 col-lg-6 col-md-8 col-sm-10 mx-auto text-center form p-4">
+                    <%= image_tag("Logo.png", size: "200x200") %> 
+                    <div class="px-2">
+
+
+                            <% @dancers.each do |d| %>
+                            <div class="blk_center row card-deck border-info mb-3">
+                            <h3><%= check_image(d)%> User - <%= d.username %></h3>
+                            <h5>Created on - <%= d.created_at %><h5>
+                            </div>
+                            
+                            <% end %>
+
+
+
+                </div>
+            </div>
+        </div>
     </div>
-    
-    <% end %>
+</section>
 
     <%= render 'dance_classes/style' %>

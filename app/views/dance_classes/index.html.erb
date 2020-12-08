@@ -1,11 +1,44 @@
-<h1> All Dance Classes</h1>
+<section id="cover" class="min-vh-100">
+    <div id="cover-caption">
+        <div class="container">
+                <div class="col-xl-5 col-lg-6 col-md-8 col-sm-10 mx-auto text-center form h5-4">
+                        <div class="px-2 ">
+                          <br>
+                          <div class="card text-white bg-dark mb-3">  
 
-<% @dance_classes.each do |dc| %>
-  <h2><%= link_to dc.type, dance_class_path(dc.id)%> - <%= dc.category.name %> </h2>
-  <%= link_to "Write a comment", new_dance_class_comment_path%>
-  <% if dc.image.attached? %>
-    <%= image_tag url_for(dc.thumbnail)%>
-  <% end %>
-  <div>
-    <p><%= dc.description %></p>
-  </div>
+
+
+                            <h3>All of the Dance Classes!</h3>
+                          </div>
+                          <hr>
+                            <% @dance_classes.each do |w| %>
+                            <div class="blk_center row card-deck border-info mb-3">
+                            <h3>Name - <%= w.dancer.username %></h3>
+                            <%= check_image(w.dancer) %>
+
+                            <h5>Title of dance class - <%= w.type %></h5>
+                            <h5>Description of dance class -  <%= w.description %> </h5>
+                
+                            <h5>Comments - <%= w.comments.count %>  </h5>
+                            <h5>Category - <%= w.category.name %>
+                            <br>
+                            <%= link_to "Show dance class", dance_class_path(w.id) %>
+                            <br>
+                            <%= link_to "Edit dance class", edit_dance_class_path(w.id) if w.dancer_id == session[:dancer_id] %>
+                            <br>
+                            <%= link_to "Delete dance class", dance_class_path(w), :confirm => "Are you sure?", :method => :delete if w.dancer_id == session[:dancer_id] %>
+                            <br>
+                            <%= link_to "Add a comment", new_dance_class_comment_path(w.id) %>
+                            </div>
+                            <hr>
+                            <% end %>
+                        
+
+                </div>
+              
+                
+                
+        </div> 
+      </div>
+</section>
+<%= render 'style' %>

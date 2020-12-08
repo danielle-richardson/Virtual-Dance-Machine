@@ -1,4 +1,5 @@
 <% @dancer.dance_classes.each do |w| %>
+    <div class="blk_center text-dark">
         <h4>Type - <%= w.type %><br></h4>
         <h4>Description -<%= w.description %><br>
     <%= link_to "Show dance_class/Comments", dance_class_path(w.id) %>

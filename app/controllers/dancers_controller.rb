@@ -19,7 +19,7 @@ class DancersController < ApplicationController
     end
 
     def show 
-        @dancer = Dancer.find_by_id(params[:id])    
+        @dancer = Dancer.find_by(id: params[:id])    
     end
 
     private 

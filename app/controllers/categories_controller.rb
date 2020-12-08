@@ -5,7 +5,7 @@ class CategoriesController < ApplicationController
 
   def index
     @categories = Category.filter_duplicates
-    dance_classes = DanceClass.all
+    @dance_classes = DanceClass.all
   end
 
 end

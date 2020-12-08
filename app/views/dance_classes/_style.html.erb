@@ -1,0 +1,41 @@
+<style>
+ #cover {
+    background: #c8a2c8 center center no-repeat;
+    background-size: cover;
+    height: 100%;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    position: relative;
+    color: black;
+}
+
+#cover-caption {
+    width: 100%;
+    position: relative;
+    z-index: 1;
+}
+
+/* only used for background overlay not needed for centering */
+form:before {
+    content: '';
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    background-color: rgba(0,0,0,0.7);
+    z-index: -1;
+    border-radius: 10px;
+}
+
+.blk_center {
+
+    width: 100%;
+    background-color: rgba(0,0,0,0.6);
+    z-index: -1;
+    border-radius: 20px;
+    display:inline-block;
+}
+
+</style>

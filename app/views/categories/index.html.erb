@@ -1,9 +1,24 @@
-<h1>All the Categories</h1>
 
-<ol>
-  <% @categories.each do |c| %>
-    <li><%= c.name%></li>
-  <% end %>
-</ol>
+<section id="cover" class="min-vh-100">
+<div id="cover-caption">
+    <div class="container">
+            <div class="col-xl-5 col-lg-6 col-md-8 col-sm-10 mx-auto text-center form h5-4">
+                    <div class="px-2 ">
+                        <div class="card text-white bg-dark mb-3"> 
+                            <h1>Categories</h1>
+                            </div>
+
+                            <% @categories.each do |c| %>
+                            
+                             <div class="blk_center">
+                           <h4 class="text-danger"><%= c.name %></h4>
+                           <h4><% @dance_classes.each do |w| %></h4>
+                                   <% if w.category_id == c.id %>
+                                   <p class="text-white"><%= w.type %></p>
+                                   <% end %>
+                                <% end %>
+                            </div>
+                            <hr>
+                            <% end %>
 
 <%= render 'dance_classes/style' %>
