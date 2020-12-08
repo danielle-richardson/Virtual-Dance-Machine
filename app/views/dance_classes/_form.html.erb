@@ -1,4 +1,3 @@
-<%= render partial: 'errors', locals: {object: @dance_class}  %>
 <% form_for(@dance_class) do |f|%>
   <div>
     <%= f.label :type %>
@@ -9,23 +8,20 @@
     <%= f.text_field :description %>
   </div>
   <br>
-    <%= f.label :image %>
-    <%= f.file_field :image %>
-    <br>
+ 
 
-  <p> Select a Category that already exists: </p>
+  <p> Add A Category: </p>
   <div>
-    <%= f.collection_select :category_id, Category.all, :id, :name, include_blank: 'Select One'%>
-
-  </div>
-
-  <p> Or create a new Category: </p>
-  <div>
-    <%=f.fields_for :category do |c| %>
-      <%= c.label :name %>
-      <%= c.text_field :name %>
-    <% end %>
-  </div>
+  <%= f.fields_for :category do |m| %>
+      <%= m.label :name %>
+      <%= m.text_field :name %>
+  <datalist id="category_name">
+      <% Category.all.each do |c| %>
+     <option value = "<%= c.name %>"  ></option>
+      <% end %>
+  </datalist>
   <br>
-  <%= f.submit %>
-<% end %>
+  <% end %>
+</div>
+  <%= f. submit %>
+<% end %> 
