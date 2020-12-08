@@ -5,7 +5,7 @@ class Comment < ApplicationRecord
   validates :title, presence: true
   validates :content, presence: true
 
-  validates :dance_class, uniqueness: { scope: :dancer, message: "only 1 comment for this post per user" }
+  validates :dance_class, uniqueness: { scope: :dancer, message: "only 1 comment for this post per dancer" }
 
 
 end

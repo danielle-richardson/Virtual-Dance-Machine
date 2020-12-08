@@ -18,8 +18,9 @@
                             <% @comments.all.each do |c| %>
                                 <%= check_image(c.dancer) %> 
                                 <h5 <%= c.dancer.username.capitalize %> posted</h5>
-                                <h5>Type - <%= c.type %></h5>
-                                <h5> Created-at <%= c.created_at %></h5>
+                                <h5>Title - <%= c.title %></h5>
+                                <h5>Comment - <%= c.content %></h5>
+                                <p> Created-at <%= c.created_at %></p>
                                 <hr>
                                 <% end %> 
                                 <%= link_to  "View Comments", dance_class_comments_path(@dance_class) %>

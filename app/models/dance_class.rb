@@ -1,4 +1,6 @@
 class DanceClass < ApplicationRecord
+  self.inheritance_column = nil
+
   belongs_to :category
   belongs_to :dancer
   has_many :comments

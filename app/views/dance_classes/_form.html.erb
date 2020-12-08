@@ -1,27 +1,39 @@
-<% form_for(@dance_class) do |f|%>
-  <div>
-    <%= f.label :type %>
-    <%= f.text_field :type %>
-  </div>
-  <div>
-    <%= f.label :description %>
-    <%= f.text_field :description %>
-  </div>
-  <br>
- 
+<h4>Select a Category</h4>
+<%= form_for(@dance_class) do |f| %>
 
-  <p> Add A Category: </p>
-  <div>
-  <%= f.fields_for :category do |m| %>
-      <%= m.label :name %>
-      <%= m.text_field :name %>
-  <datalist id="category_name">
-      <% Category.all.each do |c| %>
-     <option value = "<%= c.name %>"  ></option>
-      <% end %>
-  </datalist>
-  <br>
-  <% end %>
+<div>
+    <%= f.collection_select :category_id, Category.all, :id, :name %>
 </div>
-  <%= f. submit %>
-<% end %> 
+<br>
+  <p>OR Add A New Category:</p>
+  <div>
+      <%= f.fields_for :category do |m| %>
+          
+          <%= m.text_field :name %>
+      <datalist id="category_name">
+          <% Category.all.each do |c| %>
+         <option value = "<%= c.name %>"  ></option>
+          <% end %>
+      </datalist>
+      <br>
+      <% end %>
+  </div>
+<br>
+<br>
+
+  <div>
+      <h5><%= f.label :type, value="Class Name"%></h5>
+      <%= f.text_field :type %>
+  </div>
+<br>
+  <div>
+      <h5><%= f.label :description %></h5>
+      <%= f.text_area :description %>
+  </div>
+
+<br>
+
+
+  <br>
+      <%= f. submit %>
+<% end %>
