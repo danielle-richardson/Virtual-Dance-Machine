@@ -1,7 +1,13 @@
 class DanceClassesController < ApplicationController
-    before_action :set_dance_class, only:[:show, :edit, :update, :destroy]
     before_action :require_login
+    before_action :set_dance_class, only:[:show, :edit, :update, :destroy]
+   
+    def index
+      @dance_classes = DanceClass.all
     
+    end 
+
+
     def new 
       @dance_class = DanceClass.new
       @dance_class.build_category     
@@ -16,17 +22,6 @@ class DanceClassesController < ApplicationController
          render :new
       end
     end 
-
-    def index
-      if params["/dance_classes"]
-      @dance_classes = DanceClass.all
-      @dance_classes = DanceClass.filter_by_type(params["/dance_classes"][:type])
-      else
-      @dance_classes = DanceClass.all
-      end
-    end 
- 
-
 
     def show
       @comments = @dance_class.comments
@@ -47,11 +42,11 @@ class DanceClassesController < ApplicationController
     end
 
     def destroy 
-      if current_dancer != @dance_class.user_id
+      if current_dancer != @dance_class.dancer_id
           redirect_to dancer_path(session[:dancer_id])
       else 
           @dance_class.destroy
-          redirect_to dance_classses_path
+          redirect_to dance_classes_path
       end
   end
 
@@ -62,6 +57,6 @@ class DanceClassesController < ApplicationController
     end
 
     def set_dance_class
-        @dance_class = DanceClass.find_by(params[:id])
+        @dance_class = DanceClass.find_by(id: params[:id])
     end
 end

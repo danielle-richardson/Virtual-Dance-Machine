@@ -4,25 +4,23 @@
                 <div class="col-xl-5 col-lg-6 col-md-8 col-sm-10 mx-auto text-center form h5-4">
                         <div class="px-2 ">
                           <br>
-                          <div class="card text-white bg-dark mb-3">  
+                          <div class="blk_center row card-deck border-info mb-3">  
 
-
-
-                            <h3>All of the Dance Classes!</h3>
+                            <h3>All Dance Classes</h3>
                           </div>
                           <hr>
                             <% @dance_classes.each do |w| %>
                             <div class="blk_center row card-deck border-info mb-3">
-                            <h3>Name - <%= w.dancer.username %></h3>
+                            
+                            <h5>Category: <br><em><%= w.category.name %></em>
+                            <h5>Class Name: <br><em><%= w.type %></h5></em>
+                            <p><strong>Description:</strong><br><em><%= w.description %></em> </p>
+                            <h6>Hosted By: <%= w.dancer.username %></h6>
                             <%= check_image(w.dancer) %>
-
-                            <h5>Title of dance class - <%= w.type %></h5>
-                            <h5>Description of dance class -  <%= w.description %> </h5>
-                
-                            <h5>Comments - <%= w.comments.count %>  </h5>
-                            <h5>Category - <%= w.category.name %>
-                            <br>
-                            <%= link_to "Show dance class", dance_class_path(w.id) %>
+                            <h6>Comments: <%= w.comments.count %>  </h6>
+                            
+                            
+                            <%= link_to "More Details", dance_class_path(w.id) %>
                             <br>
                             <%= link_to "Edit dance class", edit_dance_class_path(w.id) if w.dancer_id == session[:dancer_id] %>
                             <br>

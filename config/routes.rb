@@ -7,7 +7,7 @@ get '/signup' => 'dancers#new'
 delete '/logout' => 'sessions#destroy'
 
 get '/auth/:provider/callback' => 'sessions#create'
-  
+
   resources :dancers
   resources :categories, only: [:new, :index, :create]
   resources :comments

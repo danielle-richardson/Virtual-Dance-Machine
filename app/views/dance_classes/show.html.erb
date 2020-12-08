@@ -4,7 +4,7 @@
                 <div class="col-xl-5 col-lg-6 col-md-8 col-sm-10 mx-auto text-center form p-4">
 
                         <h1>Dance Class Details</h1>
-                        <div class="blk_center row card-deck border-info text-white mb-3">
+                        <div class="blk_center row card-deck border-info text-dark mb-3">
 
                             <h3>Title:  <%= @dance_class.type %></h3>
                             <p>Description: <%= @dance_class.description %> </p>
@@ -16,8 +16,8 @@
                             <% @comments.all.each do |c| %>
                                 <%= check_image(c.dancer) %> 
                                 <h5 <%= c.dancer.username.capitalize %> posted</h5>
-                                <h5>Title - <%= c.title %></h5>
-                                <h5>Comment - <%= c.content %></h5>
+                                <h5>Subject: <%= c.title %></h5>
+                                <h5>Comment: <%= c.content %></h5>
                                 <p> Created-at <%= c.created_at %></p>
                                 <hr>
                                 <% end %> 

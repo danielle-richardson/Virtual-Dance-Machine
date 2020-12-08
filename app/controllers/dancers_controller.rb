@@ -2,6 +2,7 @@ class DancersController < ApplicationController
 
     def new
         @dancer = Dancer.new
+
     end 
 
     def index
@@ -10,7 +11,7 @@ class DancersController < ApplicationController
 
     def create
         @dancer = Dancer.new(dancer_params)      
-        if @dancer.save                             
+        if @dancer.save                           
             create_session
             redirect_to dancer_path(@dancer)
         else 

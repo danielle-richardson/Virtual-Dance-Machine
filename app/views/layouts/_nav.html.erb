@@ -1,16 +1,20 @@
-
+          
         <li class="nav-item">
-        <a class="nav-link" <%= link_to  "Your Homepage", dancer_path(session[:dancer_id]) %> </a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" <%= link_to  "New Dance Class", new_dance_class_path %> </a>
+        <a class="nav-link" <%= link_to  "Profile", dancer_path(session[:dancer_id]) %> </a>
       </li>
       <li class="nav-item">
          <a class="nav-link" <%= link_to  "All Dance Classes", dance_classes_path %> </a>
       </li>
       <li class="nav-item">
+        <a class="nav-link" <%= link_to  "Create A Dance Class", new_dance_class_path %> </a>
+      </li>
+      
+      <li class="nav-item">
          <a class="nav-link" <%= link_to  "All Categories", categories_path %> </a>
       </li>
+      <li class="nav-item">
+            <a class="nav-link" <%= link_to  "All Dancers", dancers_path %> </a>
+          </li>
       <li class="nav-item">
         <a class="nav-link" <%= link_to  "Log Out", logout_path, method: :delete %> </a>
       </li>

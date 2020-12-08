@@ -4,17 +4,18 @@
     <div class="container">
             <div class="col-xl-5 col-lg-6 col-md-8 col-sm-10 mx-auto text-center form h5-4">
                     <div class="px-2 ">
-                        <div class="card text-white bg-dark mb-3"> 
+                        <div class="blk_center row card-deck border-info mb-3"> 
                             <h1>Categories</h1>
                             </div>
+                            <hr>
 
                             <% @categories.each do |c| %>
                             
                              <div class="blk_center">
                            <h4 class="text-danger"><%= c.name %></h4>
-                           <h4><% @dance_classes.each do |w| %></h4>
+                           <h6>Classes:<% @dance_classes.each do |w| %></h6>
                                    <% if w.category_id == c.id %>
-                                   <p class="text-white"><%= w.type %></p>
+                                   <em><p class="text-white"><%= w.type %></em></p>
                                    <% end %>
                                 <% end %>
                             </div>
