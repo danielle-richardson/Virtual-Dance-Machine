@@ -1,6 +1,5 @@
 <h4>Select a Category</h4>
 <%= form_for(@dance_class) do |f| %>
-
 <div>
     <%= f.collection_select :category_id, Category.all, :id, :name %>
 </div>
@@ -8,7 +7,6 @@
   <p>OR Add A New Category:</p>
   <div>
       <%= f.fields_for :category do |m| %>
-          
           <%= m.text_field :name %>
       <datalist id="category_name">
           <% Category.all.each do |c| %>

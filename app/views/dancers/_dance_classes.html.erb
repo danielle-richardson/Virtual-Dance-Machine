@@ -1,8 +1,10 @@
 <% @dancer.dance_classes.each do |w| %>
-    <div class="blk_center text-light">
+    <div class="blk_center text-dark">
         <h4>Category: <%= w.category.name %><br></h4>
         <h4>Class Name: <%= w.type %><br></h4>
-        <h5>Description: <%= w.description %></h5><br>
+        <h5>Description: <%= w.description %></h5>
+        <h6>Comments: <%= w.comments.count %>  </h6>
+
     <%= link_to "More Details", dance_class_path(w.id) %>
     <br>
     <%= link_to "Edit Dance Class", edit_dance_class_path(w.id) if w.dancer_id == session[:dancer_id] %>

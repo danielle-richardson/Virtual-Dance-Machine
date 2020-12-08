@@ -8,8 +8,8 @@
 
                             <% @dancers.each do |d| %>
                             <div class="blk_center row card-deck border-info mb-3">
-                            <h3><%= check_image(d)%> Dancer: <%= d.username %></h3>
-                            <h5>Created on - <%= d.created_at %><h5>
+                            <h3><%= check_image(d)%> Dancer: <br><div style="color: purple;"><%= d.username %></h3>
+                            <p>Created on - <%= d.created_at %><p>
                             </div>
                             
                             <% end %>

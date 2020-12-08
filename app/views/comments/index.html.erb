@@ -4,13 +4,13 @@
                 <div class="col-xl-5 col-lg-6 col-md-8 col-sm-10 mx-auto text-center form p-4">
                 <h1 class="text-dark">All comments for <br><%= @dance_class.type %> Dance Class</h1>
 
-                    <h5 class="text-dark">Hosted By: <%= @dance_class.dancer.username %></h5>
+                    <h5 class="text-dark">Hosted By: <%= @dance_class.dancer.username %></h>
                         <div class="px-2 blk_center row card-deck border-light mb-3">
 
                         <% @comments.each do |c| %>
                         <h4 class="text-primary"><%= check_image(c.dancer) %><%=c.dancer.username %> posted: </h4>
-                        <p class="text-light"><%= c.content %><p>
-                        <p class="text-success"> Created-at <%= c.created_at %></p>
+                        <p style="color: purple;"><em><%= c.content %></em><p>
+                        <p class="text-dark"> Created-at <%= c.created_at %></p>
                         <hr>
                        
                         <% end %>

@@ -22,11 +22,11 @@
                             
                             <%= link_to "More Details", dance_class_path(w.id) %>
                             <br>
-                            <%= link_to "Edit dance class", edit_dance_class_path(w.id) if w.dancer_id == session[:dancer_id] %>
+                            <%= link_to "Edit Dance Class", edit_dance_class_path(w.id) if w.dancer_id == session[:dancer_id] %>
                             <br>
-                            <%= link_to "Delete dance class", dance_class_path(w), :confirm => "Are you sure?", :method => :delete if w.dancer_id == session[:dancer_id] %>
+                            <%= link_to "Delete Dance Class", dance_class_path(w), :confirm => "Are you sure?", :method => :delete if w.dancer_id == session[:dancer_id] %>
                             <br>
-                            <%= link_to "Add a comment", new_dance_class_comment_path(w.id) %>
+                            <%= link_to "Add A Comment", new_dance_class_comment_path(w.id) %>
                             </div>
                             <hr>
                             <% end %>

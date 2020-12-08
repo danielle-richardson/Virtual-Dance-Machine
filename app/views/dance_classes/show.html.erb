@@ -6,19 +6,19 @@
                         <h1>Dance Class Details</h1>
                         <div class="blk_center row card-deck border-info text-dark mb-3">
 
-                            <h3>Title:  <%= @dance_class.type %></h3>
-                            <p>Description: <%= @dance_class.description %> </p>
+                            <h3><%= @dance_class.type %></h3>
+                            <p>Description: <br> <em><%= @dance_class.description %><em> </p>
                       
                             </div>
                             <br>
-                            <div class="blk_center row card-deck border-primary mb-3 text-warning">
+                            <div class="blk_center row card-deck border-primary mb-3 text-dark">
 
                             <% @comments.all.each do |c| %>
                                 <%= check_image(c.dancer) %> 
                                 <h5 <%= c.dancer.username.capitalize %> posted</h5>
-                                <h5>Subject: <%= c.title %></h5>
-                                <h5>Comment: <%= c.content %></h5>
-                                <p> Created-at <%= c.created_at %></p>
+                                <h6>Subject: <div style="color: purple;">"<%= c.title %>"</h6>
+                                <h6>Comment: <div style="color: purple;">"<%= c.content %>"</h5>
+                                <p> Created at: <%= c.created_at %></p>
                                 <hr>
                                 <% end %> 
                                 <%= link_to  "View Comments", dance_class_comments_path(@dance_class) %>
