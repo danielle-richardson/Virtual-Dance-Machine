@@ -14,8 +14,6 @@ class SessionsController < ApplicationController
     end
   end
 
- 
-
     def destroy
       session.delete(:dancer_id)
       flash[:notice] = "You have successfully logged out."
