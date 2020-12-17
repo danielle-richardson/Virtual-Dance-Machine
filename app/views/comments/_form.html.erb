@@ -5,7 +5,7 @@
   <% else %>
     <div>
       <%= c.label :dance_class_id, "Select a Dance Class" %>
-      <%= c.collection_select :dance_class_id, DanceClass.all, :id, :title_category, include_blank: true %>
+      <%= c.collection_select :dance_class_id, DanceClass.all, :id, :type_category, include_blank: true %>
     </div>
   <% end %>
   

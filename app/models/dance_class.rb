@@ -25,8 +25,8 @@ class DanceClass < ApplicationRecord
     end
   end
 
-  def title_category
-    "#{title} - #{category.name}"
+  def type_category
+    "#{type} - #{category.name}"
    end
 
 
