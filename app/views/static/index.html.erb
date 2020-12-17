@@ -9,10 +9,11 @@
       <h3 class="display-4 py-2 text-truncate">Welcome to Virtual Dance Machine!</h3>
         <h3 class="display-4 py-2 text-truncate">Dance With Us!</h3>
 
+    <% if !logged_in? %>
       <%= link_to "Sign-up", {controller: "dancers", action: "new"}, class: "btn btn-dark"%> <br> <br>
       <%= link_to "Log-in", {controller: "sessions", action: "new"}, class: "btn btn-dark"%> <br> <br>
      <%= link_to "Sign-in with Google", "/auth/google_oauth2", class: "btn btn-primary" %> <br> <br>
-
+    <% end %> 
 
      </div>
     </div>
